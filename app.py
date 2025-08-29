@@ -4,7 +4,7 @@ from langchain_core.messages import HumanMessage
 import os
 from dotenv import load_dotenv
 import pandas as pd
-from helper import (
+from helpers import (
     load_properties, get_faq_response, find_property_by_id, 
     find_property_by_name, format_property_response, 
     detect_booking_intent, detect_property_query, save_visit_booking
@@ -14,7 +14,7 @@ from helper import (
 load_dotenv()
 
 app = Flask(__name__)
-app.secret_key = os.getenv('SECRET_KEY', 'your-secret-key-here-change-in-production')
+
 
 # Initialize OpenAI LLM (using GPT-3.5-turbo which is free tier)
 llm = None
@@ -36,7 +36,66 @@ properties_df = load_properties()
 @app.route('/')
 def home():
     """Main chat interface."""
-    return render_template('index.html')
+    try:
+        return render_template('index.html')
+    except Exception as e:
+        print(f"Template error: {e}")
+        # Fallback HTML for deployment debugging
+        return '''
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Zorever Real Estate Chatbot</title>
+            <style>
+                body { font-family: Arial, sans-serif; padding: 20px; text-align: center; }
+                .container { max-width: 600px; margin: 0 auto; }
+                h1 { color: #667eea; }
+                .chat-area { border: 1px solid #ddd; padding: 20px; margin: 20px 0; height: 400px; overflow-y: auto; }
+                input { width: 70%; padding: 10px; margin: 10px; }
+                button { padding: 10px 20px; background: #667eea; color: white; border: none; border-radius: 5px; }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h1>🏠 Zorever Real Estate Assistant</h1>
+                <div id="chatArea" class="chat-area">
+                    <p>Welcome! I can help you with property information, office details, and booking visits.</p>
+                </div>
+                <input type="text" id="messageInput" placeholder="Type your message here...">
+                <button onclick="sendMessage()">Send</button>
+            </div>
+            <script>
+                async function sendMessage() {
+                    const input = document.getElementById('messageInput');
+                    const chatArea = document.getElementById('chatArea');
+                    const message = input.value.trim();
+                    if (!message) return;
+                    
+                    chatArea.innerHTML += '<p><strong>You:</strong> ' + message + '</p>';
+                    input.value = '';
+                    
+                    try {
+                        const response = await fetch('/chat', {
+                            method: 'POST',
+                            headers: {'Content-Type': 'application/json'},
+                            body: JSON.stringify({message: message})
+                        });
+                        const data = await response.json();
+                        chatArea.innerHTML += '<p><strong>Bot:</strong> ' + data.response + '</p>';
+                        chatArea.scrollTop = chatArea.scrollHeight;
+                    } catch (error) {
+                        chatArea.innerHTML += '<p><strong>Error:</strong> Sorry, I encountered an error.</p>';
+                    }
+                }
+                document.getElementById('messageInput').addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') sendMessage();
+                });
+            </script>
+        </body>
+        </html>
+        '''
 
 @app.route('/chat', methods=['POST'])
 def chat():
