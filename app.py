@@ -4,7 +4,7 @@ from langchain_core.messages import HumanMessage
 import os
 from dotenv import load_dotenv
 import pandas as pd
-from helpers import (
+from helper import (
     load_properties, get_faq_response, find_property_by_id, 
     find_property_by_name, format_property_response, 
     detect_booking_intent, detect_property_query, save_visit_booking
@@ -160,3 +160,4 @@ def list_properties():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
+
