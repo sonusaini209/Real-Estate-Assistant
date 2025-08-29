@@ -92,6 +92,9 @@ def save_visit_booking(name: str, phone: str, property_id: str = "", property_na
     """Save visit booking to CSV file."""
     file_path = 'data/visits.csv'
     
+    # Create data directory if it doesn't exist
+    os.makedirs('data', exist_ok=True)
+    
     # Create file with header if it doesn't exist
     if not os.path.exists(file_path):
         with open(file_path, 'w', newline='') as csvfile:
