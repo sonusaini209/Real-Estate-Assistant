@@ -13,7 +13,9 @@ from helper import (
 # Load environment variables
 load_dotenv()
 
-app = Flask(__name__)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+template_dir = os.path.join(BASE_DIR, 'templates')
+app = Flask(__name__, template_folder=template_dir)
 
 
 # Initialize OpenAI LLM (using GPT-3.5-turbo which is free tier)
@@ -159,4 +161,5 @@ def list_properties():
     return jsonify(properties_df.to_dict('records'))
 
 if __name__ == '__main__':
+
     app.run(host='0.0.0.0', port=5000, debug=True)
