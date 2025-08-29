@@ -70,7 +70,7 @@ Deploy to Render and update this link: [https://your-app-name.onrender.com/](htt
 - `I want to book a visit`
 - `Schedule a property visit`
 
-## 💻 Local Setup
+```bash
 
 # Create virtual environment
 python -m venv venv
@@ -84,22 +84,24 @@ export OPENAI_API_KEY=your_openai_api_key_here
 
 # Run the application
 python app.py
+```
 
 
 Open [http://localhost:5000](http://localhost:5000) in your browser
 
 
+```
 zorever-assessment/
 ├── app.py              # Main Flask application with routes
 ├── helpers.py          # Data processing and intent detection
 ├── templates/
 │   └── index.html      # Modern responsive chat interface
 ├── data/
-│   ├── properties.csv  # Property database 
+│   ├── properties.csv  # Property database (7 sample properties)
 │   └── visits.csv      # Visit bookings (auto-created)
 ├── requirements.txt    # Python dependencies
 └── runtime.txt         # Python version for deployment
-
+```
 
 ## 🔧 Tech Stack
 
@@ -112,13 +114,11 @@ zorever-assessment/
 ### AI & Machine Learning
 - **OpenAI GPT-3.5-turbo** - Natural language processing
 - **LangChain** - LLM framework for structured interactions
-- **AI Enhancement** - Response polishing and conversation flow
 
 ### Frontend
 - **HTML5** - Semantic markup structure
 - **CSS3** - Modern styling with gradients and animations
 - **JavaScript (ES6+)** - Interactive chat functionality
-- **Responsive Design** - Mobile-first approach
 
 ### Data Storage
 - **CSV Files** - Simple, portable data storage
