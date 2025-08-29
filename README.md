@@ -51,9 +51,7 @@ This project demonstrates a complete AI-powered chatbot solution for real estate
 | Modern Web UI          | Responsive chat interface with typing indicators |
 | Data Persistence       | CSV storage for properties and visit bookings |
 
-### Live Demo
 
-Deploy to Render and update this link: [https://your-app-name.onrender.com/](https://your-app-name.onrender.com/)
 
 ### Supported Queries Examples
 
