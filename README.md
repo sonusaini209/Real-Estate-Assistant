@@ -1,11 +1,11 @@
-<h1 align="center">AI-Powered Real Estate Chatbot — Zorever Assessment</h1>
+<h1 align="center">AI-Powered Real Estate Chatbot</h1>
 
 <p align="center">
   <a href="https://your-app-name.onrender.com/">
     <img alt="Live Demo" src="https://img.shields.io/badge/Live-Demo-blue" />
   </a>
   &nbsp;
-  <a href="https://github.com/yourusername/zorever-assessment">
+  <a href="https://github.com/sonusaini209/Real-Estate-Assistant">
     <img alt="GitHub Repo" src="https://img.shields.io/badge/GitHub-Repository-black" />
   </a>
   &nbsp;
@@ -31,7 +31,7 @@
   Answers property FAQs, provides detailed property information, and automates visit bookings.</em>
 </p>
 
-## ✨ Overview
+##  Overview
 
 This project demonstrates a complete AI-powered chatbot solution for real estate businesses, featuring:
 
@@ -40,7 +40,7 @@ This project demonstrates a complete AI-powered chatbot solution for real estate
 **Automated Visit Booking:** Multi-step booking flow with data persistence to CSV  
 **AI Enhancement:** Uses OpenAI GPT-3.5-turbo to polish all responses for natural conversation  
 
-## 🛠️ Features
+##  Features
 
 | Feature                 | Description                                              |
 |-------------------------|----------------------------------------------------------|
@@ -72,11 +72,6 @@ Deploy to Render and update this link: [https://your-app-name.onrender.com/](htt
 
 ## 💻 Local Setup
 
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/zorever-assessment
-cd zorever-assessment
-
 # Create virtual environment
 python -m venv venv
 source venv/bin/activate  # Windows: venv\Scripts\activate
@@ -89,55 +84,48 @@ export OPENAI_API_KEY=your_openai_api_key_here
 
 # Run the application
 python app.py
-```
+
 
 Open [http://localhost:5000](http://localhost:5000) in your browser
 
-## 🚀 Render Deployment
 
-1. **Connect Repository:** Link your GitHub repo to Render
-2. **Environment Variables:** Set `OPENAI_API_KEY` in Render dashboard
-3. **Build Command:** `pip install -r requirements.txt`
-4. **Start Command:** `gunicorn app:app`
-
-## 📁 Project Structure
-
-```
 zorever-assessment/
 ├── app.py              # Main Flask application with routes
 ├── helpers.py          # Data processing and intent detection
 ├── templates/
 │   └── index.html      # Modern responsive chat interface
 ├── data/
-│   ├── properties.csv  # Property database (7 sample properties)
+│   ├── properties.csv  # Property database 
 │   └── visits.csv      # Visit bookings (auto-created)
 ├── requirements.txt    # Python dependencies
 └── runtime.txt         # Python version for deployment
-```
 
-## 🏠 Sample Properties Available
 
-| ID   | Property Name      | Type      | Price      | Status    |
-|------|-------------------|-----------|------------|-----------|
-| P001 | Sunrise Apartments | Apartment | $250,000   | Available |
-| P002 | Desert View Villa  | Villa     | $1,250,000 | On Request|
-| P003 | Marina Heights     | Apartment | $450,000   | Available |
-| P004 | Golden Sands Tower | Apartment | $320,000   | Available |
-| P005 | Palm Residence     | Villa     | $800,000   | Available |
-| P006 | Sky Gardens        | Apartment | $520,000   | On Request|
-| P007 | Ocean Breeze       | Apartment | $280,000   | Available |
+## 🔧 Tech Stack
 
-## 🤖 AI Integration
+### Backend
+- **Python 3.11+** - Core programming language
+- **Flask 3.1+** - Lightweight web framework
+- **pandas** - Data manipulation and CSV processing
+- **python-dotenv** - Environment variable management
 
-- **Model:** OpenAI GPT-3.5-turbo
-- **Framework:** LangChain for structured LLM interactions  
-- **Enhancement:** All responses are polished by AI for natural conversation
-- **Fallback:** System works without OpenAI (basic template responses)
+### AI & Machine Learning
+- **OpenAI GPT-3.5-turbo** - Natural language processing
+- **LangChain** - LLM framework for structured interactions
+- **AI Enhancement** - Response polishing and conversation flow
 
-## 📝 Technical Requirements Met
+### Frontend
+- **HTML5** - Semantic markup structure
+- **CSS3** - Modern styling with gradients and animations
+- **JavaScript (ES6+)** - Interactive chat functionality
+- **Responsive Design** - Mobile-first approach
 
-✅ **Generic FAQ Handling:** Office location, working hours, services  
-✅ **Property-Specific Queries:** Lookup by ID or name with fuzzy matching  
-✅ **Visit Booking Automation:** Multi-step flow with CSV persistence  
-✅ **Modern Web Interface:** Responsive design with real-time chat  
-✅ **AI Enhancement:** Natural language response polishing
+### Data Storage
+- **CSV Files** - Simple, portable data storage
+- **Session Management** - Flask sessions for booking flow
+- **File I/O** - Python standard library operations
+
+### Deployment & DevOps
+- **Gunicorn** - WSGI HTTP server for production
+- **Render** - Cloud hosting platform
+- **Git** - Version control system
