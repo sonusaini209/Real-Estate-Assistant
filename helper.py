@@ -8,10 +8,10 @@ from typing import Dict, Optional, List
 def load_properties() -> pd.DataFrame:
     """Load properties from CSV file."""
     try:
-        df = pd.read_csv('data/properties.csv')
+        df = pd.read_csv('properties.csv')
         return df
     except FileNotFoundError:
-        print("Error: properties.csv file not found in data directory")
+        print("Error: properties.csv file not found")
         return pd.DataFrame()
 
 # FAQ responses
@@ -90,10 +90,7 @@ def detect_property_query(query: str) -> tuple:
 
 def save_visit_booking(name: str, phone: str, property_id: str = "", property_name: str = "", user_message: str = ""):
     """Save visit booking to CSV file."""
-    file_path = 'data/visits.csv'
-    
-    # Create data directory if it doesn't exist
-    os.makedirs('data', exist_ok=True)
+    file_path = 'visits.csv'
     
     # Create file with header if it doesn't exist
     if not os.path.exists(file_path):
@@ -106,3 +103,4 @@ def save_visit_booking(name: str, phone: str, property_id: str = "", property_na
         writer = csv.writer(csvfile)
         timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         writer.writerow([timestamp, property_id, property_name, name, phone, user_message])
+
