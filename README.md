@@ -1,9 +1,7 @@
 <h1 align="center">AI-Powered Real Estate Chatbot</h1>
 
 <p align="center">
-  <a href="https://your-app-name.onrender.com/">
-    <img alt="Live Demo" src="https://img.shields.io/badge/Live-Demo-blue" />
-  </a>
+ 
   &nbsp;
   <a href="https://github.com/sonusaini209/Real-Estate-Assistant">
     <img alt="GitHub Repo" src="https://img.shields.io/badge/GitHub-Repository-black" />
