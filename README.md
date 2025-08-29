@@ -97,7 +97,7 @@ zorever-assessment/
 ├── templates/
 │   └── index.html      # Modern responsive chat interface
 ├── data/
-│   ├── properties.csv  # Property database (7 sample properties)
+│   ├── properties.csv  # Property database (12 sample properties)
 │   └── visits.csv      # Visit bookings (auto-created)
 ├── requirements.txt    # Python dependencies
 └── runtime.txt         # Python version for deployment
