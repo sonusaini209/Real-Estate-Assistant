@@ -4,7 +4,7 @@ from langchain_core.messages import HumanMessage
 import os
 from dotenv import load_dotenv
 import pandas as pd
-from helper import (
+from helpers import (
     load_properties, get_faq_response, find_property_by_id, 
     find_property_by_name, format_property_response, 
     detect_booking_intent, detect_property_query, save_visit_booking
@@ -13,10 +13,8 @@ from helper import (
 # Load environment variables
 load_dotenv()
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-template_dir = os.path.join(BASE_DIR, 'templates')
-app = Flask(__name__, template_folder=template_dir)
-
+app = Flask(__name__)
+app.secret_key = os.getenv('SECRET_KEY', 'your-secret-key-here-change-in-production')
 
 # Initialize OpenAI LLM (using GPT-3.5-turbo which is free tier)
 llm = None
@@ -161,5 +159,4 @@ def list_properties():
     return jsonify(properties_df.to_dict('records'))
 
 if __name__ == '__main__':
-
     app.run(host='0.0.0.0', port=5000, debug=True)
