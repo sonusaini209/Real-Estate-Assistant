@@ -35,7 +35,7 @@
 
 This project demonstrates a complete AI-powered chatbot solution for real estate businesses, featuring:
 
-**Smart Property Search:** Find properties by listing ID (P001-P007) or name matching  
+**Smart Property Search:** Find properties by listing ID (P001-P0012) or name matching  
 **Natural Language FAQs:** Answers common questions about office hours, location, and services  
 **Automated Visit Booking:** Multi-step booking flow with data persistence to CSV  
 **AI Enhancement:** Uses OpenAI GPT-3.5-turbo to polish all responses for natural conversation  
